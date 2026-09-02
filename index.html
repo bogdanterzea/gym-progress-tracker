@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan antrenament · sep–dec 2026</title>
+<meta name="description" content="Plan personal de antrenament, 3 blocuri, septembrie–decembrie 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stone:#ECEEE8; --paper:#F6F7F3; --ink:#1B1E1B; --ink-2:#4A4F48; --line:#C9CEC4;
+    --olive:#4C5A3C; --olive-soft:#DDE3D2; --oxide:#B0392C; --oxide-soft:#F3DDD9;
+    --w:880px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--stone);color:var(--ink);font:16px/1.5 "Barlow",system-ui,sans-serif;}
+  a{color:inherit}
+  h1,h2,h3{font-family:"Barlow Condensed","Barlow",sans-serif;font-weight:700;line-height:1.05;margin:0}
+  h1{font-size:clamp(2.6rem,9vw,4.6rem);letter-spacing:-.01em}
+  h2{font-size:clamp(1.7rem,5vw,2.4rem);margin-bottom:.35rem}
+  h3{font-size:1.35rem;font-weight:600}
+  p{margin:.4rem 0}
+  .wrap{max-width:var(--w);margin:0 auto;padding:0 18px}
+
+  header{padding:34px 0 18px}
+  header .sub{font-size:1.05rem;color:var(--ink-2);max-width:56ch;margin-top:10px}
+
+  /* timeline: the one bold element */
+  .timeline{margin:26px 0 10px}
+  .tl-bar{position:relative;display:grid;grid-template-columns:5fr 5fr 5fr 1.6fr;gap:4px;height:64px}
+  .tl-seg{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:8px 10px;display:flex;flex-direction:column;justify-content:space-between;font-size:.85rem;color:var(--ink-2);cursor:pointer;transition:background .15s}
+  .tl-seg b{font-family:"Barlow Condensed",sans-serif;font-size:1.25rem;font-weight:700;color:var(--ink)}
+  .tl-seg.active{background:var(--olive);border-color:var(--olive);color:#E5EBDA}
+  .tl-seg.active b{color:#fff}
+  .tl-seg:focus-visible{outline:3px solid var(--oxide);outline-offset:2px}
+  .tl-now{position:absolute;top:-8px;bottom:-8px;width:2px;background:var(--oxide);pointer-events:none}
+  .tl-now::after{content:"azi";position:absolute;top:-19px;left:-10px;font-size:.72rem;color:var(--oxide);font-weight:600}
+  .tl-deload{display:flex;gap:4px;margin-top:6px}
+  .tl-deload span{font-size:.75rem;color:var(--ink-2)}
+  .tl-deload span:nth-child(-n+3){flex:5}
+  .tl-deload span:nth-child(4){flex:1.6}
+
+  .today{margin:22px 0 0;padding:14px 16px;background:var(--paper);border-left:4px solid var(--olive);border-radius:0 4px 4px 0;display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+  .today b{font-family:"Barlow Condensed",sans-serif;font-size:1.3rem}
+  .today .muted{color:var(--ink-2)}
+
+  nav.tabs{position:sticky;top:0;z-index:5;background:var(--stone);padding:14px 0 10px;margin-top:22px;border-bottom:1px solid var(--line)}
+  nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+  nav.tabs button{flex:0 0 auto;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:8px 14px;border-radius:999px;font:inherit;font-weight:500;cursor:pointer}
+  nav.tabs button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  nav.tabs button:focus-visible{outline:3px solid var(--oxide);outline-offset:2px}
+
+  section.panel{display:none;padding:26px 0 40px}
+  section.panel.show{display:block}
+  .why{color:var(--ink-2);max-width:62ch;margin-bottom:18px}
+
+  .day{background:var(--paper);border:1px solid var(--line);border-radius:6px;margin:18px 0;overflow:hidden}
+  .day-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line);background:#F0F2EC}
+  .day-h small{color:var(--ink-2);font-weight:400;margin-left:8px}
+  .done{display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--ink-2);cursor:pointer;user-select:none}
+  .done input{width:18px;height:18px;accent-color:var(--olive);margin:0}
+  table{width:100%;border-collapse:collapse;font-size:.95rem}
+  th,td{text-align:left;padding:10px 14px;vertical-align:top;border-top:1px solid var(--line)}
+  thead th{border-top:0;font-weight:500;color:var(--ink-2);font-size:.82rem}
+  tr:first-child td{border-top:0}
+  td.sr{white-space:nowrap;font-weight:600;font-variant-numeric:tabular-nums}
+  td.ss{color:var(--ink-2);font-weight:600;width:2.6em;white-space:nowrap}
+  td.note{color:var(--ink-2);font-size:.88rem}
+  tr.knee td:first-child::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--oxide);margin-right:8px;vertical-align:middle}
+  .etalon{margin:10px 0 0;font-size:.92rem;color:var(--ink-2)}
+
+  .callout{background:var(--oxide-soft);border-left:4px solid var(--oxide);padding:12px 14px;border-radius:0 4px 4px 0;margin:18px 0;font-size:.95rem}
+  .callout.olive{background:var(--olive-soft);border-color:var(--olive)}
+  .rules{padding-left:1.2em;margin:.4rem 0}
+  .rules li{margin:.35rem 0}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media (max-width:640px){.grid2{grid-template-columns:1fr}.tl-seg span{display:none}.tl-seg{padding:6px 8px}th:nth-child(3),td:nth-child(3){display:none} .day table td.note{display:none}}
+  .compare td:nth-child(2),.compare td:nth-child(3){font-variant-numeric:tabular-nums}
+  .compare td:nth-child(3){font-weight:600}
+
+  footer{padding:26px 0 48px;color:var(--ink-2);font-size:.88rem;border-top:1px solid var(--line)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <h1>Sep → Dec 2026</h1>
+  <p class="sub">Trei blocuri de cinci săptămâni. La fiecare bloc se schimbă split-ul și toate exercițiile secundare. Luni, miercuri, vineri la sală; padel marți, alergat joi, tir cu arcul sâmbătă.</p>
+
+  <div class="timeline" aria-label="Calendar blocuri">
+    <div class="tl-bar" id="tlbar">
+      <button class="tl-seg" data-tab="b1"><b>Bloc 1</b><span>7 sep – 11 oct · Upper / Lower / Full</span></button>
+      <button class="tl-seg" data-tab="b2"><b>Bloc 2</b><span>12 oct – 15 nov · Push / Pull / Legs</span></button>
+      <button class="tl-seg" data-tab="b3"><b>Bloc 3</b><span>16 nov – 20 dec · Superseturi</span></button>
+      <button class="tl-seg" data-tab="reguli"><b>Dec</b><span>21–31 · ușor</span></button>
+      <div class="tl-now" id="tlnow" hidden></div>
+    </div>
+    <div class="tl-deload"><span>deload 5–11 oct</span><span>deload 9–15 nov</span><span>deload 14–20 dec</span><span></span></div>
+  </div>
+
+  <div class="today" id="todaybox" hidden>
+    <div><b id="today-title"></b> <span class="muted" id="today-date"></span></div>
+    <span class="muted" id="today-sub"></span>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Secțiuni">
+  <div class="wrap" role="tablist">
+    <button role="tab" data-tab="acum">Unde sunt</button>
+    <button role="tab" data-tab="b1">Bloc 1</button>
+    <button role="tab" data-tab="b2">Bloc 2</button>
+    <button role="tab" data-tab="b3">Bloc 3</button>
+    <button role="tab" data-tab="reguli">Reguli</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ================= ACUM ================= -->
+<section class="panel" id="acum">
+  <h2>Unde sunt acum</h2>
+  <p class="why">Din exportul Strong, 5 aug – 2 sep: 10 sesiuni în 4 săptămâni, zero sărite. Progresie pe aproape tot. Plictiseala vine din 4 luni cu aceleași 7 exerciții, nu din lipsă de rezultate.</p>
+
+  <div class="day">
+    <table class="compare">
+      <thead><tr><th>Exercițiu</th><th>5–12 aug</th><th>28 aug – 2 sep</th></tr></thead>
+      <tbody>
+        <tr><td>Bench Wide Grip</td><td>60 kg × 8</td><td>60 kg × 10</td></tr>
+        <tr><td>Incline DB</td><td>16 × 10</td><td>20 × 10</td></tr>
+        <tr><td>OHP</td><td>70 kg × 12</td><td>80 kg × 10 ?</td></tr>
+        <tr><td>Lateral Raise</td><td>7 × 11</td><td>8 × 12</td></tr>
+        <tr><td>Chest Dip asistat</td><td>−12 × 10</td><td>−12 × 12</td></tr>
+        <tr><td>Triceps Pushdown</td><td>41 × 10</td><td>45 × 10</td></tr>
+        <tr><td>Pull Up asistat</td><td>−54 × 8</td><td>−45 × 10</td></tr>
+        <tr><td>Bent Over Row</td><td>40 × 11</td><td>45 × 12</td></tr>
+        <tr><td>Leg Press</td><td>100 × 12</td><td>125 × 12</td></tr>
+        <tr><td>Goblet Squat</td><td>10 × 12</td><td>16 × 15</td></tr>
+        <tr><td>RDL</td><td>40 × 10</td><td>45 × 12</td></tr>
+        <tr><td>Seated Leg Curl</td><td>54 × 12</td><td>63 × 12</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <b>OHP 80 kg × 10 cu bench 60 kg × 10 nu există fizic.</b> Un OHP e ~60–65% din bench. Ori la OHP se loggează totalul pe bară (30 kg = 30 kg, nu 80), ori bench-ul e subevaluat. De verificat la prima sesiune: plăci + bară, exact.
+  </div>
+
+  <h3 style="margin-top:26px">Convenții Strong</h3>
+  <ul class="rules">
+    <li>Bară: se loggează <b>per parte</b>. În plan apare totalul real și, în paranteză, ce se loggează.</li>
+    <li>Dumbbell, cablu, mașină: se loggează ce scrie pe fier.</li>
+    <li>Numele exercițiilor sunt din biblioteca Strong. Dacă unul nu apare exact, echivalentul cel mai apropiat, notat în Workout Notes.</li>
+    <li><b>Progresie:</b> limita de sus a reps la toate seturile → sesiunea următoare +2.5 kg total pe bară, +1–2 kg pe dumbbell, +1 treaptă pe mașină.</li>
+    <li><b>Deload</b> (săptămâna 5 din fiecare bloc): aceleași exerciții, −30% greutate, −1 set. Nu e săptămână liberă.</li>
+  </ul>
+</section>
+
+<!-- ================= BLOC 1 ================= -->
+<section class="panel" id="b1">
+  <h2>Bloc 1 — Upper / Lower / Full Body</h2>
+  <p class="why">7 septembrie – 11 octombrie. Piept și spate în aceeași zi, pompe diferite. Vinerea intră deadlift, care nu apare nicăieri în 4 ani de Strong.</p>
+
+  <div class="day" data-key="b1-luni">
+    <div class="day-h"><h3>Luni <small>Upper</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Start / note</th></tr></thead><tbody>
+      <tr><td>Bench Press (Barbell) — priză normală, nu wide</td><td class="sr">4 × 6–8</td><td class="note">55 kg (17.5/parte). Priză nouă, pornești mai jos.</td></tr>
+      <tr><td>Chin Up (Assisted) — priză supinată</td><td class="sr">4 × 8–10</td><td class="note">−45 kg asistență</td></tr>
+      <tr><td>Seated Overhead Press (Dumbbell)</td><td class="sr">3 × 8–10</td><td class="note">16 kg / DB</td></tr>
+      <tr><td>Seated Row (Cable) — priză îngustă</td><td class="sr">3 × 10–12</td><td class="note">35 kg</td></tr>
+      <tr><td>Cable Crossover</td><td class="sr">3 × 12–15</td><td class="note">10 kg / parte</td></tr>
+      <tr><td>Reverse Fly (Machine)</td><td class="sr">3 × 12–15</td><td class="note">ușor, formă</td></tr>
+      <tr><td>Triceps Extension (Cable) — coardă, overhead</td><td class="sr">3 × 10–12</td><td class="note">25 kg</td></tr>
+      <tr><td>Incline Curl (Dumbbell)</td><td class="sr">3 × 10–12</td><td class="note">8 kg</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="day" data-key="b1-mie">
+    <div class="day-h"><h3>Miercuri <small>Lower</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Start / note</th></tr></thead><tbody>
+      <tr class="knee"><td>Front Squat (Barbell)</td><td class="sr">4 × 6–8</td><td class="note">40 kg (10/parte). Încălzire 10 min. Trunchi vertical = genunchi protejat.</td></tr>
+      <tr><td>Hip Thrust (Barbell)</td><td class="sr">4 × 10–12</td><td class="note">60 kg (20/parte)</td></tr>
+      <tr><td>Leg Extension (Machine)</td><td class="sr">3 × 12–15</td><td class="note">moderat, 2 sec coborâre</td></tr>
+      <tr><td>Lying Leg Curl (Machine)</td><td class="sr">3 × 10–12</td><td class="note">echivalent seated 54</td></tr>
+      <tr><td>Walking Lunge (Dumbbell)</td><td class="sr">3 × 10 / picior</td><td class="note">10 kg / mână</td></tr>
+      <tr><td>Standing Calf Raise (Machine)</td><td class="sr">4 × 12–15</td><td class="note"></td></tr>
+      <tr><td>Cable Crunch</td><td class="sr">3 × 15</td><td class="note"></td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="day" data-key="b1-vin">
+    <div class="day-h"><h3>Vineri <small>Full Body</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Start / note</th></tr></thead><tbody>
+      <tr class="knee"><td>Deadlift (Barbell)</td><td class="sr">4 × 5</td><td class="note">60 kg (20/parte). Primele 2 săpt = doar tehnică. Spate neutru, bara lipită de tibie.</td></tr>
+      <tr><td>Incline Bench Press (Barbell)</td><td class="sr">3 × 8–10</td><td class="note">40 kg (10/parte)</td></tr>
+      <tr><td>Lat Pulldown (Cable) — priză largă</td><td class="sr">3 × 10–12</td><td class="note">35 kg</td></tr>
+      <tr><td>Arnold Press (Dumbbell)</td><td class="sr">3 × 10</td><td class="note">12 kg / DB</td></tr>
+      <tr><td>Leg Press — picioare sus pe platformă</td><td class="sr">3 × 12</td><td class="note">100 kg</td></tr>
+      <tr><td>Face Pull (Cable)</td><td class="sr">3 × 15</td><td class="note">36 kg</td></tr>
+      <tr><td>Hanging Leg Raise</td><td class="sr">3 × 12</td><td class="note"></td></tr>
+    </tbody></table>
+  </div>
+  <p class="etalon">Etalon bloc: Bench Press (Barbell), Front Squat, Deadlift. Se notează la final de bloc, 11 octombrie.</p>
+</section>
+
+<!-- ================= BLOC 2 ================= -->
+<section class="panel" id="b2">
+  <h2>Bloc 2 — Push / Pull / Legs, toate noi</h2>
+  <p class="why">12 octombrie – 15 noiembrie. Split-ul care a dat progres vara, dar niciun exercițiu din vară. Mașini și unghiuri nefolosite.</p>
+
+  <div class="day" data-key="b2-luni">
+    <div class="day-h"><h3>Luni <small>Push</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Note</th></tr></thead><tbody>
+      <tr><td>Incline Bench Press (Barbell)</td><td class="sr">4 × 6–8</td><td class="note">exercițiu principal, urcă de la Bloc 1</td></tr>
+      <tr><td>Chest Press (Machine)</td><td class="sr">3 × 10–12</td><td class="note">tempo 3 sec coborâre</td></tr>
+      <tr><td>Shoulder Press (Machine)</td><td class="sr">4 × 8–10</td><td class="note"></td></tr>
+      <tr><td>Lateral Raise (Cable) — un braț</td><td class="sr">4 × 12–15</td><td class="note">cablu jos, în spatele corpului</td></tr>
+      <tr><td>Triceps Dip (Assisted) — trunchi vertical</td><td class="sr">3 × 10</td><td class="note">asistență −20 kg</td></tr>
+      <tr><td>Skullcrusher (Barbell) — bară EZ</td><td class="sr">3 × 10–12</td><td class="note">20 kg total</td></tr>
+      <tr><td>Push Up — finisher</td><td class="sr">2 × max</td><td class="note"></td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="day" data-key="b2-mie">
+    <div class="day-h"><h3>Miercuri <small>Pull</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Note</th></tr></thead><tbody>
+      <tr><td>Pull Up (Assisted) — priză largă</td><td class="sr">4 × 6–8</td><td class="note">−35 kg, țintă −25 la final de bloc</td></tr>
+      <tr><td>T Bar Row</td><td class="sr">4 × 8–10</td><td class="note">înlocuiește bent over row. Piept pe pad dacă există = zero șale.</td></tr>
+      <tr><td>Lat Pulldown (Single Arm)</td><td class="sr">3 × 10–12 / braț</td><td class="note"></td></tr>
+      <tr><td>Dumbbell Row</td><td class="sr">3 × 10–12 / braț</td><td class="note">genunchi pe bancă, 22–24 kg</td></tr>
+      <tr><td>Shrug (Dumbbell)</td><td class="sr">3 × 12–15</td><td class="note">pauză 2 sec sus</td></tr>
+      <tr><td>Preacher Curl (Barbell)</td><td class="sr">3 × 8–10</td><td class="note">bară EZ</td></tr>
+      <tr><td>Reverse Curl (Barbell)</td><td class="sr">3 × 12</td><td class="note">antebraț, EZ ușoară</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="day" data-key="b2-vin">
+    <div class="day-h"><h3>Vineri <small>Legs</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Note</th></tr></thead><tbody>
+      <tr class="knee"><td>Hack Squat</td><td class="sr">4 × 8–10</td><td class="note">picioare medii. Genunchii nu trec de vârfuri. Încălzire completă.</td></tr>
+      <tr><td>Deadlift (Barbell) — sumo</td><td class="sr">3 × 6</td><td class="note">~85% din deadlift-ul de Bloc 1</td></tr>
+      <tr><td>Bulgarian Split Squat — DB</td><td class="sr">3 × 8 / picior</td><td class="note">12 kg / mână</td></tr>
+      <tr><td>Seated Leg Curl (Machine)</td><td class="sr">3 × 12</td><td class="note">revii după 5 săpt pauză</td></tr>
+      <tr><td>Glute Kickback (Cable) sau Hip Abduction (Machine)</td><td class="sr">3 × 15</td><td class="note"></td></tr>
+      <tr><td>Calf Press on Leg Press</td><td class="sr">4 × 15</td><td class="note"></td></tr>
+      <tr><td>Ab Wheel sau Plank cu greutate</td><td class="sr">3 × 10 / 3 × 45 s</td><td class="note"></td></tr>
+    </tbody></table>
+  </div>
+  <p class="etalon">Etalon bloc: Incline Bench, Pull Up asistat, Hack Squat. Final de bloc 15 noiembrie.</p>
+</section>
+
+<!-- ================= BLOC 3 ================= -->
+<section class="panel" id="b3">
+  <h2>Bloc 3 — Superseturi antagoniste</h2>
+  <p class="why">16 noiembrie – 20 decembrie. Perechi piept↔spate, biceps↔triceps, cvadriceps↔hamstring. A1 apoi imediat A2, apoi 90 sec pauză. Sesiuni de 55–60 min. Revii la bench, OHP și back squat ca să comparăm cu baseline-ul din mai.</p>
+
+  <div class="day" data-key="b3-luni">
+    <div class="day-h"><h3>Luni <small>Piept + Spate</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Note</th></tr></thead><tbody>
+      <tr><td class="ss">A1</td><td>Bench Press (Barbell)</td><td class="sr">4 × 6–8</td></tr>
+      <tr><td class="ss">A2</td><td>Bent Over Row (Barbell) — Pendlay, bara pe podea între reps</td><td class="sr">4 × 6–8</td></tr>
+      <tr><td class="ss">B1</td><td>Incline Bench Press (Dumbbell)</td><td class="sr">3 × 10</td></tr>
+      <tr><td class="ss">B2</td><td>Chin Up (Assisted)</td><td class="sr">3 × 8–10</td></tr>
+      <tr><td class="ss">C1</td><td>Chest Fly (Machine sau Cable)</td><td class="sr">3 × 12–15</td></tr>
+      <tr><td class="ss">C2</td><td>Seated Row (Cable) — priză largă</td><td class="sr">3 × 12–15</td></tr>
+      <tr><td class="ss">D</td><td>Back Extension</td><td class="sr">3 × 15</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="day" data-key="b3-mie">
+    <div class="day-h"><h3>Miercuri <small>Umeri + Brațe</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Note</th></tr></thead><tbody>
+      <tr><td class="ss">A1</td><td>Overhead Press (Barbell) — în picioare</td><td class="sr">4 × 6–8</td></tr>
+      <tr><td class="ss">A2</td><td>Lateral Raise (Dumbbell)</td><td class="sr">4 × 12–15</td></tr>
+      <tr><td class="ss">B1</td><td>Arnold Press (Dumbbell)</td><td class="sr">3 × 10</td></tr>
+      <tr><td class="ss">B2</td><td>Reverse Fly (Dumbbell) — aplecat</td><td class="sr">3 × 15</td></tr>
+      <tr><td class="ss">C1</td><td>Bicep Curl (Barbell)</td><td class="sr">3 × 8–10</td></tr>
+      <tr><td class="ss">C2</td><td>Close Grip Bench Press</td><td class="sr">3 × 8–10</td></tr>
+      <tr><td class="ss">D1</td><td>Hammer Curl (Dumbbell)</td><td class="sr">3 × 12</td></tr>
+      <tr><td class="ss">D2</td><td>Triceps Pushdown (Cable - Rope)</td><td class="sr">3 × 12</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="day" data-key="b3-vin">
+    <div class="day-h"><h3>Vineri <small>Legs</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Note</th></tr></thead><tbody>
+      <tr class="knee"><td class="ss">A</td><td>Squat (Barbell) — back squat, primul din mai încoace. Încălzire 10 min + 2 seturi bară goală</td><td class="sr">4 × 6–8</td></tr>
+      <tr><td class="ss">B1</td><td>Leg Extension (Machine)</td><td class="sr">3 × 12</td></tr>
+      <tr><td class="ss">B2</td><td>Lying Leg Curl (Machine)</td><td class="sr">3 × 12</td></tr>
+      <tr><td class="ss">C</td><td>Romanian Deadlift (Barbell)</td><td class="sr">3 × 10</td></tr>
+      <tr><td class="ss">D1</td><td>Walking Lunge (Dumbbell)</td><td class="sr">3 × 10 / picior</td></tr>
+      <tr><td class="ss">D2</td><td>Standing Calf Raise (Machine)</td><td class="sr">3 × 15</td></tr>
+      <tr><td class="ss">E</td><td>Hanging Leg Raise + Russian Twist</td><td class="sr">3 × 12 + 3 × 20</td></tr>
+    </tbody></table>
+  </div>
+  <p class="etalon">Etalon bloc: Bench, OHP, Back Squat, comparabile cu mai 2026. Final de bloc 20 decembrie.</p>
+</section>
+
+<!-- ================= REGULI ================= -->
+<section class="panel" id="reguli">
+  <h2>Reguli</h2>
+  <div class="grid2">
+    <div>
+      <h3>Genunchi (menisc)</h3>
+      <ul class="rules">
+        <li>Front Squat, Hack Squat, Back Squat, Deadlift: încălzire 10 min (bike, leg swings, bară goală). Fără excepție.</li>
+        <li>Durere ascuțită în genunchi = stop pe loc. Treci pe Leg Press + Leg Curl. Raportezi în aceeași zi.</li>
+        <li>Nicio greutate nouă pe squat/deadlift fără 2 sesiuni curate la greutatea actuală.</li>
+        <li>Punctul roșu în tabele marchează exercițiile cu atenție la genunchi.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Non-negociabile</h3>
+      <ul class="rules">
+        <li>Zero antrenamente sărite fără motiv medical.</li>
+        <li>Tracking în Strong la fiecare sesiune.</li>
+        <li>Încălzire 10 min, cooldown 5 min stretching.</li>
+        <li>Somn 7h înaintea zilelor grele. Mâncare pre-workout. 500 ml apă în timpul sesiunii.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout olive">
+    <b>21 – 31 decembrie:</b> două sesiuni full body ușoare pe săptămână (deadlift 3×5, bench 3×8, pull-up, leg press, 40 min) plus pași. Sărbători, nu ne prefacem.
+  </div>
+
+  <h3 style="margin-top:22px">Ce se trimite</h3>
+  <ul class="rules">
+    <li>Screenshot Strong după fiecare sesiune.</li>
+    <li>Export CSV la finalul fiecărui bloc: 11 oct, 15 nov, 20 dec.</li>
+    <li>Prima sesiune de Bloc 1: greutatea reală pe bară la OHP, plăci + bară.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="wrap">Plan personal. Greutățile de start sunt puncte de plecare, nu obligații: dacă 8 reps sunt ușoare, urci; dacă forma cedează, cobori.</footer>
+
+<script>
+(function(){
+  var blocks=[
+    {id:'b1',start:'2026-09-07',end:'2026-10-11',days:{1:'Upper',3:'Lower',5:'Full Body'}},
+    {id:'b2',start:'2026-10-12',end:'2026-11-15',days:{1:'Push',3:'Pull',5:'Legs'}},
+    {id:'b3',start:'2026-11-16',end:'2026-12-20',days:{1:'Piept + Spate',3:'Umeri + Brațe',5:'Legs'}}
+  ];
+  var other={2:'Padel + 6.000 pași',4:'Alergat ușor + mobilitate',6:'Tir cu arcul + 8.000 pași',0:'Recuperare activă'};
+  var deloads=[['2026-10-05','2026-10-11'],['2026-11-09','2026-11-15'],['2026-12-14','2026-12-20']];
+  var tabs=document.querySelectorAll('[data-tab]'), panels=document.querySelectorAll('.panel');
+
+  function show(id){
+    panels.forEach(function(p){p.classList.toggle('show',p.id===id)});
+    document.querySelectorAll('nav.tabs [data-tab]').forEach(function(b){b.setAttribute('aria-selected',b.dataset.tab===id)});
+    document.querySelectorAll('.tl-seg').forEach(function(b){b.classList.toggle('active',b.dataset.tab===id)});
+    if(location.hash!=='#'+id) history.replaceState(null,'','#'+id);
+  }
+  tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.tab)})});
+
+  // today
+  var now=new Date(); var iso=now.toISOString().slice(0,10);
+  var cur=blocks.filter(function(b){return iso>=b.start&&iso<=b.end})[0];
+  var t0=new Date('2026-09-07'), t1=new Date('2026-12-31');
+  if(now>=t0&&now<=t1){
+    var pct=(now-t0)/(t1-t0)*100; var n=document.getElementById('tlnow'); n.style.left=pct+'%'; n.hidden=false;
+  }
+  var box=document.getElementById('todaybox'), dow=now.getDay();
+  var dn=['Duminică','Luni','Marți','Miercuri','Joi','Vineri','Sâmbătă'][dow];
+  var title, sub='';
+  if(cur){
+    if(cur.days[dow]){ title=dn+': '+cur.days[dow]; sub=cur.id.toUpperCase().replace('B','Bloc '); var dl=deloads.filter(function(d){return iso>=d[0]&&iso<=d[1]}).length; if(dl) sub+=' · săptămână deload (−30%, −1 set)'; }
+    else { title=dn+': '+other[dow]; sub='fără sală'; }
+  } else if(iso<'2026-09-07'){ title='Blocul 1 începe luni, 7 septembrie'; }
+  else if(iso<='2026-12-31'){ title=dn+': full body ușor sau pași'; sub='21–31 dec'; }
+  else { title='Planul s-a încheiat. Următorul bloc: de stabilit.'; }
+  document.getElementById('today-title').textContent=title;
+  document.getElementById('today-date').textContent=now.toLocaleDateString('ro-RO',{day:'numeric',month:'long'});
+  document.getElementById('today-sub').textContent=sub; box.hidden=false;
+
+  // initial tab
+  var h=location.hash.slice(1);
+  show(document.getElementById(h)?h:(cur?cur.id:'b1'));
+
+  // done checkboxes, saved locally per day+date
+  document.querySelectorAll('.day[data-key]').forEach(function(d){
+    var cb=d.querySelector('input'), key='done:'+d.dataset.key+':'+iso;
+    try{ cb.checked=localStorage.getItem(key)==='1'; }catch(e){}
+    cb.addEventListener('change',function(){ try{ cb.checked?localStorage.setItem(key,'1'):localStorage.removeItem(key);}catch(e){} });
+  });
+})();
+</script>
+</body>
+</html>
