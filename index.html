@@ -89,13 +89,13 @@
 
 <header class="wrap">
   <h1>Sep → Dec 2026</h1>
-  <p class="sub">Trei blocuri de cinci săptămâni. La fiecare bloc se schimbă split-ul și toate exercițiile secundare. Luni, miercuri, vineri la sală; padel marți, alergat joi, tir cu arcul sâmbătă.</p>
+  <p class="sub">Trei blocuri de cinci săptămâni. La fiecare bloc se schimbă split-ul și toate exercițiile secundare. Blocurile 1–2: luni, miercuri, vineri la sală. <b>Blocul 3 trece la 5 zile de sală</b> — luni, marți, miercuri, vineri, sâmbătă; padel joi, duminică liber.</p>
 
   <div class="timeline" aria-label="Calendar blocuri">
     <div class="tl-bar" id="tlbar">
       <button class="tl-seg" data-tab="b1"><b>Bloc 1</b><span>7 sep – 11 oct · Upper / Lower / Full</span></button>
       <button class="tl-seg" data-tab="b2"><b>Bloc 2</b><span>12 oct – 15 nov · Push / Pull / Legs</span></button>
-      <button class="tl-seg" data-tab="b3"><b>Bloc 3</b><span>16 nov – 20 dec · Superseturi</span></button>
+      <button class="tl-seg" data-tab="b3"><b>Bloc 3</b><span>16 nov – 20 dec · 5 zile PPL+UL</span></button>
       <button class="tl-seg" data-tab="reguli"><b>Dec</b><span>21–31 · ușor</span></button>
       <div class="tl-now" id="tlnow" hidden></div>
     </div>
@@ -254,49 +254,91 @@
 
 <!-- ================= BLOC 3 ================= -->
 <section class="panel" id="b3">
-  <h2>Bloc 3 — Superseturi antagoniste</h2>
-  <p class="why">16 noiembrie – 20 decembrie. Perechi piept↔spate, biceps↔triceps, cvadriceps↔hamstring. A1 apoi imediat A2, apoi 90 sec pauză. Sesiuni de 55–60 min. Revii la bench, OHP și back squat ca să comparăm cu baseline-ul din mai.</p>
+  <h2>Bloc 3 — 5 zile: Push / Pull / Legs A / Upper / Legs B</h2>
+  <p class="why">16 noiembrie – 20 decembrie. Trecere de la 3 la 5 zile de sală: fiecare grupă e lovită de două ori pe săptămână, sesiunile rămân 75–90 min cu cardio inclus. Greutățile pornesc de unde a rămas blocul 2 pe <b>9 noiembrie</b> — o săptămână de pauză nu șterge nimic, deci nu se resetează nimic. Padel se mută joi, tirul cu arcul rămâne sâmbătă după sală, duminica e rest total.</p>
+
+  <div class="callout olive">
+    <b>Cardio la fiecare sesiune:</b> 10 min bandă sau bicicletă înainte (HR 110–130) + 12–15 min mers înclinat după (HR 120–140). Exact ce faci deja — acum e scris în rutină, nu adăugat pe loc.
+  </div>
 
   <div class="day" data-key="b3-luni">
-    <div class="day-h"><h3>Luni <small>Piept + Spate</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
-    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Note</th></tr></thead><tbody>
-      <tr><td class="ss">A1</td><td>Bench Press (Barbell)</td><td class="sr">4 × 6–8</td></tr>
-      <tr><td class="ss">A2</td><td>Bent Over Row (Barbell) — Pendlay, bara pe podea între reps</td><td class="sr">4 × 6–8</td></tr>
-      <tr><td class="ss">B1</td><td>Incline Bench Press (Dumbbell)</td><td class="sr">3 × 10</td></tr>
-      <tr><td class="ss">B2</td><td>Chin Up (Assisted)</td><td class="sr">3 × 8–10</td></tr>
-      <tr><td class="ss">C1</td><td>Chest Fly (Machine sau Cable)</td><td class="sr">3 × 12–15</td></tr>
-      <tr><td class="ss">C2</td><td>Seated Row (Cable) — priză largă</td><td class="sr">3 × 12–15</td></tr>
-      <tr><td class="ss">D</td><td>Back Extension</td><td class="sr">3 × 15</td></tr>
+    <div class="day-h"><h3>Luni <small>Push — piept, umeri, triceps</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu</th><th>S × R</th><th>Start / note</th></tr></thead><tbody>
+      <tr><td>Incline Bench Press (Barbell)</td><td class="sr">4 × 6–8</td><td class="note">65 kg total. Pe 9 nov: 65 × 7. Continui, nu resetezi.</td></tr>
+      <tr><td>Chest Press (Machine)</td><td class="sr">3 × 10–12</td><td class="note">54.5 kg. Tempo 3 sec coborâre.</td></tr>
+      <tr><td>Shoulder Press (Machine)</td><td class="sr">4 × 8–10</td><td class="note">30 kg</td></tr>
+      <tr><td>Lateral Raise (Cable), un braț</td><td class="sr">4 × 12–15 / braț</td><td class="note">18 kg. Cablu jos, în spatele corpului.</td></tr>
+      <tr><td>Chest Dip (Assisted)</td><td class="sr">3 × 10</td><td class="note">0 asistență — faci dips liber de pe 26 oct</td></tr>
+      <tr><td>Skullcrusher (Barbell EZ)</td><td class="sr">3 × 10–12</td><td class="note">20 kg. Coate fixe. Dacă înțeapă încheietura → coardă.</td></tr>
+      <tr><td>Push Up</td><td class="sr">2 × max</td><td class="note">finisare, la eșec</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="day" data-key="b3-marti">
+    <div class="day-h"><h3>Marți <small>Pull — spate, biceps</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu</th><th>S × R</th><th>Start / note</th></tr></thead><tbody>
+      <tr><td>Pull Up (Assisted), priză largă</td><td class="sr">4 × 6–8</td><td class="note">asistență −27 kg. Țintă −18 la final de bloc.</td></tr>
+      <tr><td>T-Bar Row</td><td class="sr">4 × 8–10</td><td class="note">45 kg. Spate neutru, zero smucituri.</td></tr>
+      <tr><td>Lat Pulldown (un braț)</td><td class="sr">3 × 10–12 / braț</td><td class="note">25 kg / parte</td></tr>
+      <tr><td>Seated Row (Cable), priză largă</td><td class="sr">3 × 10–12</td><td class="note">52 kg. Strânge omoplații 1 sec.</td></tr>
+      <tr><td>Shrug (Dumbbell)</td><td class="sr">3 × 12–15</td><td class="note">42 kg. Pauză 2 sec sus.</td></tr>
+      <tr><td>Preacher Curl (EZ)</td><td class="sr">3 × 8–10</td><td class="note">32.5 kg total</td></tr>
+      <tr><td>Hammer Curl (Dumbbell)</td><td class="sr">3 × 12</td><td class="note">10 kg. Priză neutră = încheietură protejată.</td></tr>
     </tbody></table>
   </div>
 
   <div class="day" data-key="b3-mie">
-    <div class="day-h"><h3>Miercuri <small>Umeri + Brațe</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
-    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Note</th></tr></thead><tbody>
-      <tr><td class="ss">A1</td><td>Overhead Press (Barbell) — în picioare</td><td class="sr">4 × 6–8</td></tr>
-      <tr><td class="ss">A2</td><td>Lateral Raise (Dumbbell)</td><td class="sr">4 × 12–15</td></tr>
-      <tr><td class="ss">B1</td><td>Arnold Press (Dumbbell)</td><td class="sr">3 × 10</td></tr>
-      <tr><td class="ss">B2</td><td>Reverse Fly (Dumbbell) — aplecat</td><td class="sr">3 × 15</td></tr>
-      <tr><td class="ss">C1</td><td>Bicep Curl (Barbell)</td><td class="sr">3 × 8–10</td></tr>
-      <tr><td class="ss">C2</td><td>Close Grip Bench Press</td><td class="sr">3 × 8–10</td></tr>
-      <tr><td class="ss">D1</td><td>Hammer Curl (Dumbbell)</td><td class="sr">3 × 12</td></tr>
-      <tr><td class="ss">D2</td><td>Triceps Pushdown (Cable - Rope)</td><td class="sr">3 × 12</td></tr>
+    <div class="day-h"><h3>Miercuri <small>Legs A — cvadriceps</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu</th><th>S × R</th><th>Start / note</th></tr></thead><tbody>
+      <tr class="knee"><td>Hack Squat</td><td class="sr">4 × 8–10</td><td class="note">80 kg. Ai bătut 75 × 10 × 4 pe 6 nov — urci. Încălzire 10 min.</td></tr>
+      <tr><td>Leg Press — picioare sus</td><td class="sr">3 × 10–12</td><td class="note">200 kg</td></tr>
+      <tr class="knee"><td>Bulgarian Split Squat</td><td class="sr">3 × 8–10 / picior</td><td class="note">18 kg / mână. Genunchiul nu trece de vârf.</td></tr>
+      <tr><td>Leg Extension (Machine)</td><td class="sr">3 × 12–15</td><td class="note">70 kg, 2 sec coborâre</td></tr>
+      <tr><td>Seated Calf Raise</td><td class="sr">4 × 12–15</td><td class="note">60 kg</td></tr>
+      <tr><td>Hanging Leg Raise</td><td class="sr">3 × 12</td><td class="note"></td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="day" data-key="b3-joi">
+    <div class="day-h"><h3>Joi <small>Padel — fără sală</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Activitate</th><th>Durată</th><th>Note</th></tr></thead><tbody>
+      <tr><td>Padel</td><td class="sr">60–90 min</td><td class="note">Garmin pornit. 1.5 L apă în timpul jocului.</td></tr>
+      <tr><td>Mobilitate șolduri + umeri</td><td class="sr">10 min</td><td class="note">după joc, nu înainte</td></tr>
+      <tr><td>Pași</td><td class="sr">10.000</td><td class="note">recuperare activă între Legs A și Upper</td></tr>
     </tbody></table>
   </div>
 
   <div class="day" data-key="b3-vin">
-    <div class="day-h"><h3>Vineri <small>Legs</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
-    <table><thead><tr><th>Exercițiu (Strong)</th><th>S × R</th><th>Note</th></tr></thead><tbody>
-      <tr class="knee"><td class="ss">A</td><td>Squat (Barbell) — back squat, primul din mai încoace. Încălzire 10 min + 2 seturi bară goală</td><td class="sr">4 × 6–8</td></tr>
-      <tr><td class="ss">B1</td><td>Leg Extension (Machine)</td><td class="sr">3 × 12</td></tr>
-      <tr><td class="ss">B2</td><td>Lying Leg Curl (Machine)</td><td class="sr">3 × 12</td></tr>
-      <tr><td class="ss">C</td><td>Romanian Deadlift (Barbell)</td><td class="sr">3 × 10</td></tr>
-      <tr><td class="ss">D1</td><td>Walking Lunge (Dumbbell)</td><td class="sr">3 × 10 / picior</td></tr>
-      <tr><td class="ss">D2</td><td>Standing Calf Raise (Machine)</td><td class="sr">3 × 15</td></tr>
-      <tr><td class="ss">E</td><td>Hanging Leg Raise + Russian Twist</td><td class="sr">3 × 12 + 3 × 20</td></tr>
+    <div class="day-h"><h3>Vineri <small>Upper — piept, spate, umeri (volum)</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu</th><th>S × R</th><th>Start / note</th></tr></thead><tbody>
+      <tr><td>Bench Press (Barbell), priză normală</td><td class="sr">4 × 6–8</td><td class="note">60 kg total. Prima dată pe bench plat din 5 octombrie.</td></tr>
+      <tr><td>Bent Over Row (Barbell) — Pendlay</td><td class="sr">4 × 8–10</td><td class="note">50 kg. <b>Formă strictă</b> — bara pe podea între reps, zero smucituri din șale.</td></tr>
+      <tr><td>Arnold Press (Dumbbell)</td><td class="sr">3 × 10</td><td class="note">14 kg / DB</td></tr>
+      <tr><td>Chest Fly (Machine)</td><td class="sr">3 × 12–15</td><td class="note">14 kg. Întindere completă.</td></tr>
+      <tr><td>Reverse Fly (Dumbbell)</td><td class="sr">3 × 15</td><td class="note">7 kg, aplecat. Ușor, formă.</td></tr>
+      <tr><td>Triceps Pushdown (coardă)</td><td class="sr">3 × 12</td><td class="note">coardă, nu bară — mai blând pe încheietură</td></tr>
+      <tr><td>Bicep Curl (Barbell)</td><td class="sr">3 × 8–10</td><td class="note">20 kg total</td></tr>
     </tbody></table>
   </div>
-  <p class="etalon">Etalon bloc: Bench, OHP, Back Squat, comparabile cu mai 2026. Final de bloc 20 decembrie.</p>
+
+  <div class="day" data-key="b3-sam">
+    <div class="day-h"><h3>Sâmbătă <small>Legs B — lanț posterior</small></h3><label class="done"><input type="checkbox"> făcut azi</label></div>
+    <table><thead><tr><th>Exercițiu</th><th>S × R</th><th>Start / note</th></tr></thead><tbody>
+      <tr class="knee"><td>Sumo Deadlift (Barbell)</td><td class="sr">4 × 6</td><td class="note">90 kg total. Ai făcut 90 × 12 pe 6 nov — aici e greu și scurt, nu lung.</td></tr>
+      <tr><td>Romanian Deadlift (Barbell)</td><td class="sr">3 × 10</td><td class="note">50 kg. Accesoriu. Bara lipită de coapsă.</td></tr>
+      <tr><td>Seated Leg Curl (Machine)</td><td class="sr">3 × 12</td><td class="note">81 kg</td></tr>
+      <tr><td>Hip Abductor (Machine)</td><td class="sr">3 × 15</td><td class="note">99 kg. Stabilitate șold = genunchi protejat.</td></tr>
+      <tr><td>Walking Lunge (Dumbbell)</td><td class="sr">3 × 10 / picior</td><td class="note">16 kg / mână</td></tr>
+      <tr><td>Seated Calf Raise</td><td class="sr">3 × 15</td><td class="note">60 kg</td></tr>
+      <tr><td>Ab Wheel</td><td class="sr">3 × 12</td><td class="note">tir cu arcul după, nu înainte</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="callout">
+    <b>Duminică = zero sală.</b> Meal prep 9:00–11:00, plimbare 45 min, somn. Cu 5 zile de sală, recuperarea e singura variabilă care te ține întreg. Dacă sari duminica, în 3 săptămâni ești accidentat.
+  </div>
+
+  <p class="etalon">Etalon bloc: Incline Bench, Bench Press, Hack Squat, Pull Up asistat. Deload 14–20 decembrie (−30%, −1 set). Backup OpenGym la 20 decembrie.</p>
 </section>
 
 <!-- ================= REGULI ================= -->
@@ -344,7 +386,8 @@
   var blocks=[
     {id:'b1',start:'2026-09-07',end:'2026-10-11',days:{1:'Upper',3:'Lower',5:'Full Body'}},
     {id:'b2',start:'2026-10-12',end:'2026-11-15',days:{1:'Push',3:'Pull',5:'Legs'}},
-    {id:'b3',start:'2026-11-16',end:'2026-12-20',days:{1:'Piept + Spate',3:'Umeri + Brațe',5:'Legs'}}
+    {id:'b3',start:'2026-11-16',end:'2026-12-20',days:{1:'Push',2:'Pull',3:'Legs A',5:'Upper',6:'Legs B'},
+     other:{4:'Padel + 10.000 pași',0:'Rest total + meal prep'}}
   ];
   var other={2:'Padel + 6.000 pași',4:'Alergat ușor + mobilitate',6:'Tir cu arcul + 8.000 pași',0:'Recuperare activă'};
   var deloads=[['2026-10-05','2026-10-11'],['2026-11-09','2026-11-15'],['2026-12-14','2026-12-20']];
@@ -370,7 +413,7 @@
   var title, sub='';
   if(cur){
     if(cur.days[dow]){ title=dn+': '+cur.days[dow]; sub=cur.id.toUpperCase().replace('B','Bloc '); var dl=deloads.filter(function(d){return iso>=d[0]&&iso<=d[1]}).length; if(dl) sub+=' · săptămână deload (−30%, −1 set)'; }
-    else { title=dn+': '+other[dow]; sub='fără sală'; }
+    else { title=dn+': '+((cur.other&&cur.other[dow])||other[dow]); sub='fără sală'; }
   } else if(iso<'2026-09-07'){ title='Blocul 1 începe luni, 7 septembrie'; }
   else if(iso<='2026-12-31'){ title=dn+': full body ușor sau pași'; sub='21–31 dec'; }
   else { title='Planul s-a încheiat. Următorul bloc: de stabilit.'; }

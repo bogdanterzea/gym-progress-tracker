@@ -2,17 +2,17 @@
 
 Site personal cu planul meu de antrenament pentru septembrie–decembrie 2026. Îl folosesc ca să-mi urmăresc progresul și să am planul la îndemână pe telefon, la sală.
 
-Nu e un program general și nu e un sfat pentru altcineva. Greutățile, exercițiile și regulile sunt calibrate pe istoricul meu din Strong și pe situația mea (istoric de menisc, 3 zile de sală pe săptămână, deficit caloric). Dacă îl citești, ia-l ca pe un exemplu de structură, nu ca pe un plan de urmat.
+Nu e un program general și nu e un sfat pentru altcineva. Greutățile, exercițiile și regulile sunt calibrate pe istoricul meu din Strong și pe situația mea (istoric de menisc, deficit caloric). Blocurile 1–2 sunt pe 3 zile de sală pe săptămână, blocul 3 trece la 5. Dacă îl citești, ia-l ca pe un exemplu de structură, nu ca pe un plan de urmat.
 
 ## Ce conține
 
 - **Unde sunt** — comparație greutăți august vs. septembrie, din exportul Strong
 - **Bloc 1** (7 sep – 11 oct) — Upper / Lower / Full Body
 - **Bloc 2** (12 oct – 15 nov) — Push / Pull / Legs cu exerciții noi
-- **Bloc 3** (16 nov – 20 dec) — superseturi antagoniste
+- **Bloc 3** (16 nov – 20 dec) — 5 zile: Push / Pull / Legs A / Upper / Legs B
 - **Reguli** — genunchi, non-negociabile, deload, ce trimit coach-ului
 
-Pagina detectează ziua curentă și arată antrenamentul zilei. Bifa „făcut azi" se salvează local în browser, nu pleacă nicăieri.
+Pagina detectează ziua curentă și arată antrenamentul zilei (inclusiv zilele fără sală, care diferă de la un bloc la altul). Bifa „făcut azi" se salvează local în browser, nu pleacă nicăieri.
 
 ## Hosting
 
